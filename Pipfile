@@ -4,11 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-pyyaml = "*"
 django = "*"
 django-rest-framework = "*"
 
 [dev-packages]
-
-[requires]
-python_version = "3.9"
