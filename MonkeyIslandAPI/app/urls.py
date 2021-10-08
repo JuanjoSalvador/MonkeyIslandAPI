@@ -1,11 +1,12 @@
-from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.urls.conf import include
 
-from app.views import CharactersView, PiratesView, PirateFightView
+from rest_framework.routers import DefaultRouter
+from app.views import CharactersViewSet, PiratesView, InsultsView
 
-urlpatterns = [
-    path('characters/', CharactersView.as_view(), name='characters-view'),
-    path('pirates/', PiratesView.as_view(), name='pirates-view'),
-    path('pirate_fight/', PirateFightView.as_view(), name='pirate-fight-view'),
-]
+router = DefaultRouter()
+router.register('characters', CharactersViewSet, basename='characters-view'),
+router.register('pirates', PiratesView, basename='pirates-view'),
+router.register('insults', InsultsView, basename='pirate-fight-view'),
+
+urlpatterns = router.urls

@@ -1,12 +1,5 @@
 from django.db import models
 
-class LowerCaseField(models.CharField):
-    def __init__(self, *args, **kwargs):
-        super(LowerCaseField, self).__init__(*args, **kwargs)
-
-    def get_prep_value(self, value):
-        return str(value).lower()
-
 class Character(models.Model):
 
     ROLES = (
@@ -44,8 +37,8 @@ class Pirate(Character):
 
 class Insult(models.Model):
 
-    insult = LowerCaseField(max_length=200)
-    comeback = LowerCaseField(max_length=200)
+    insult = models.CharField(max_length=200)
+    comeback = models.CharField(max_length=200)
 
     def __str__(self) -> str:
         return self.insult

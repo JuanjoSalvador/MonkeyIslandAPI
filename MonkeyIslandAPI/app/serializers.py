@@ -5,7 +5,7 @@ from app.models import Character, Pirate, Insult
 class CharacterSerializer(serializers.ModelSerializer):
     class Meta:
         model = Character
-        fields = ('name', 'description', 'role', )
+        fields = ('id', 'name', 'description', 'role', )
 
     def to_representation(self, instance):
         data = super(CharacterSerializer, self).to_representation(instance=instance)
@@ -16,7 +16,7 @@ class CharacterSerializer(serializers.ModelSerializer):
 class PirateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pirate
-        fields = ('name', 'description', 'is_captain', 'role', )
+        fields = ('id', 'name', 'description', 'is_captain', 'role', )
 
     def to_representation(self, instance):
         data = super(PirateSerializer, self).to_representation(instance=instance)
@@ -28,7 +28,7 @@ class PirateSerializer(serializers.ModelSerializer):
 class InsultSerializer(serializers.ModelSerializer):
     class Meta:
         model = Insult
-        fields = ('insult', 'comeback', )
+        fields = ('id', 'insult', 'comeback', )
 
     def to_representation(self, instance):
         data = super(InsultSerializer, self).to_representation(instance=instance)
