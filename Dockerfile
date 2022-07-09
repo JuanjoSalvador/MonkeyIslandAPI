@@ -5,6 +5,8 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 
+RUN apk add postgresql-dev postgresql-client
+
 RUN pip install --upgrade pip wheel
 RUN pip install -r requirements.txt
 
